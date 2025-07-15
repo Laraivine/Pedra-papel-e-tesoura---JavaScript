@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const opcoes = ['pedra', 'papel', 'tesoura'];
+
+        function Computador(){
+            const opcaoComputador = Math.floor(Math.random() * opcoes.length);
+            return opcoes[opcaoComputador];
+        }
+
+        function Usuario(){
+            let opcaoUsuario = parseInt(prompt('Digite uma opção: pedra, papel ou tesoura'))
+        }
+
+        function Vencedor(Usuario, Computador){
+            if((Usuario == 'pedra' && Computador == 'tesoura') ||(Usuario == 'tesoura' && Computador == 'papel' || (Usuario == 'papel' && Computador == 'pedra'))){
+                return 'Usuário';
+            } 
+                return 'Computador';
+
+            if(Usuario == Computador){
+                return 'Empate';
+            }
+            }
+        function Exibir(Computador, Usuario, resultado){
+            alert(Usuário: ${Usuario}, Computador: ${Computador}, Resultado: ${resultado});
+        }
+        
+        function Jogar(){
+            let continuar = true;
+            while(continuar){
+                const usuario = Usuario();
+                const computador = Computador();
+                const resultado = Vencedor(Usuario, Computador); 
+                const Exibir(Computador, Usuario, resultado);
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
