@@ -7,38 +7,45 @@
     <script>
         const opcoes = ['pedra', 'papel', 'tesoura'];
 
-        function Computador(){
-            const opcaoComputador = Math.floor(Math.random() * opcoes.length);
-            return opcoes[opcaoComputador];
+        function computador(){
+            const opcaocomputador = Math.floor(Math.random() * opcoes.length);
+            return opcoes[opcaocomputador];
         }
 
-        function Usuario(){
-            let opcaoUsuario = parseInt(prompt('Digite uma opção: pedra, papel ou tesoura'))
+        function usuario(){
+            let opcaousuario = prompt('Digite uma opção: pedra, papel, tesoura ou sair')
+            return opcaousuario
         }
 
-        function Vencedor(Usuario, Computador){
-            if((Usuario == 'pedra' && Computador == 'tesoura') ||(Usuario == 'tesoura' && Computador == 'papel' || (Usuario == 'papel' && Computador == 'pedra'))){
+        function vencedor(usuario, computador){
+            console.log(usuario)
+            if((usuario == 'pedra' && computador == 'tesoura') ||(usuario == 'tesoura' && computador == 'papel' || (usuario == 'papel' && computador == 'pedra'))){
                 return 'Usuário';
-            } 
-                return 'Computador';
-
-            if(Usuario == Computador){
+            }else if(usuario == computador){
                 return 'Empate';
+            }else{
+                return 'Computador';
             }
             }
-        function Exibir(Computador, Usuario, resultado){
-            alert(Usuário: ${Usuario}, Computador: ${Computador}, Resultado: ${resultado});
+        function exibir(computador, usuario, resultado){
+            alert(`Usuário: ${usuario}, Computador: ${computador}, Resultado: ${resultado}`);
         }
         
-        function Jogar(){
+        function jogar(){
             let continuar = true;
             while(continuar){
-                const usuario = Usuario();
-                const computador = Computador();
-                const resultado = Vencedor(Usuario, Computador); 
-                const Exibir(Computador, Usuario, resultado);
+                const escolhaUsuario = usuario();
+                const escolhaComputador = computador();
+                if (opcoes.includes(escolhaUsuario)) {
+                    const resultado = vencedor(escolhaUsuario, escolhaComputador); 
+                    exibir(escolhaComputador, escolhaUsuario, resultado);
+                }  else continuar = false
+
             }
+            let mensagem = prompt('Obrigada por jogar')
         }
+
+        jogar()
     </script>
 </head>
 <body>
